@@ -41,4 +41,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    //retrofit
+    implementation (libs.squareup.retrofit2)
+    implementation (libs.squareup.retrofit2.gson)
+    implementation (libs.squareup.retrofit2.moshi)
+    implementation (libs.squareup.okhttp3)
 }
