@@ -50,6 +50,11 @@ dependencies {
     implementation (libs.squareup.retrofit2.moshi)
     implementation (libs.squareup.okhttp3)
 
+    //unit test
+    implementation (libs.mockk)
+    implementation (libs.mockito.android)
+    implementation (libs.mockito.core)
+
     // hilt di
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)

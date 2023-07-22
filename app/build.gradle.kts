@@ -76,6 +76,12 @@ dependencies {
     implementation (libs.squareup.moshi)
     implementation (libs.squareup.okhttp3.mockwebserver)
 
+    //retrofit
+    implementation (libs.squareup.retrofit2.adapter)
+    implementation (libs.squareup.retrofit2)
+    implementation (libs.squareup.retrofit2.gson)
+    implementation (libs.squareup.retrofit2.moshi)
+
     // hilt di
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)

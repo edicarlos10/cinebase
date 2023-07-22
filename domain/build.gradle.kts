@@ -44,6 +44,11 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
+    //unit test
+    implementation (libs.mockk)
+    implementation (libs.mockito.android)
+    implementation (libs.mockito.core)
+
     // hilt di
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
