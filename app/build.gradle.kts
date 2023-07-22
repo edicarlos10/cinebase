@@ -53,6 +53,8 @@ android {
 }
 
 dependencies {
+    implementation (project(path = ":network"))
+    implementation (project(path = ":domain"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
