@@ -2,6 +2,8 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.com.google.dagger.hilt)
+    kotlin("kapt")
 }
 
 android {
@@ -31,11 +33,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -73,4 +75,11 @@ dependencies {
     implementation (libs.squareup.okhttp3.logging)
     implementation (libs.squareup.moshi)
     implementation (libs.squareup.okhttp3.mockwebserver)
+
+    // hilt di
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+}
+kapt {
+    correctErrorTypes = true
 }
