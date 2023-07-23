@@ -5,6 +5,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Dates(
-    val maximum: String?,
-    val minimum: String?
+    val maximum: String? = null,
+    val minimum: String? = null
 ) : Parcelable
