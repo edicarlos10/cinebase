@@ -9,6 +9,6 @@ interface ICinebaseApiClient {
     fun getNowPlaying(
         @Query("api_key") apiKey: String,
         @Query("page") page: Int = 1,
-        @Query("language") language: String = "pt-Br",
+        @Query("language") language: String = "pt-br",
         )
 }

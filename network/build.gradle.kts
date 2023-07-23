@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.com.google.dagger.hilt)
     kotlin("kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -38,6 +39,7 @@ android {
 dependencies {
     implementation (project(path = ":domain"))
 
+    implementation (libs.androidx.ktx)
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
