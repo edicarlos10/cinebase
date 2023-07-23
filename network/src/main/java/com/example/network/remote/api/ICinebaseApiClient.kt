@@ -1,5 +1,6 @@
 package com.example.network.remote.api
 
+import com.example.domain.cinebase.model.NowPlaying
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -10,5 +11,5 @@ interface ICinebaseApiClient {
         @Query("api_key") apiKey: String,
         @Query("page") page: Int = 1,
         @Query("language") language: String = "pt-br",
-        )
+        ): List<NowPlaying>
 }
