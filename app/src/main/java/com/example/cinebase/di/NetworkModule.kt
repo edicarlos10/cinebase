@@ -1,6 +1,6 @@
 package com.example.cinebase.di
 
-import com.example.network.remote.api.ICinebaseApiClient
+import com.example.network.remote.api.ICineApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +17,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun getCineApiClientService(): ICinebaseApiClient {
+    fun getCineApiClientService(): ICineApiClient {
 
         val httpInterceptor = HttpLoggingInterceptor()
         httpInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -30,6 +30,6 @@ class NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl("https://api.themoviedb.org/3/movie/")
             .build()
-            .create(ICinebaseApiClient::class.java)
+            .create(ICineApiClient::class.java)
     }
 }
