@@ -3,6 +3,6 @@ package com.example.domain.cinebase
 import com.example.domain.cinebase.nowplaying.model.NowPlaying
 import kotlinx.coroutines.flow.Flow
 
-interface ICineNowPlayingRepository {
+interface ICineRepository {
     suspend fun getNowPlaying(page: Int?, language: String?): Flow<List<NowPlaying>>
 }
