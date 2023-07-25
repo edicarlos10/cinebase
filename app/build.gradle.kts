@@ -57,6 +57,8 @@ dependencies {
     implementation (project(path = ":network"))
     implementation (project(path = ":domain"))
 
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.core.ktx)
     implementation (libs.androidx.ktx)
     implementation(libs.lifecycle.runtime.ktx)
