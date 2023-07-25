@@ -5,20 +5,22 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.cinebase.base.State
 import com.example.domain.cinebase.nowplaying.model.NowPlaying
 import com.example.domain.cinebase.nowplaying.usecase.GetCineNowPlayingUseCase
-import kotlinx.coroutines.flow.Flow
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getCineNowPlayingUseCase: GetCineNowPlayingUseCase
 ): ViewModel() {
 
-    private  val _nowPlayingState = MutableStateFlow<State<List<NowPlaying>>>(State.loading())
-    val nowPlaying: Flow<State<List<NowPlaying?>>>
-        get() = _nowPlayingState
+    private  val _nowPlayingState = MutableStateFlow<State<NowPlaying>>(State.loading())
+    val nowPlaying = _nowPlayingState.asStateFlow()
+//        get() = _nowPlayingState.asStateFlow()
 
 //    init {
 //        getNowPlaying()
