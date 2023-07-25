@@ -1,6 +1,6 @@
 package com.example.network.remote.response
 
-import com.example.domain.cinebase.nowplaying.model.Result
+import com.example.domain.cinebase.home.model.Result
 
 data class ResultResponse(
     val adult: Boolean? = null,

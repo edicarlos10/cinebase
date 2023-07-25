@@ -1,6 +1,6 @@
 package com.example.network.remote
 
-import com.example.domain.cinebase.nowplaying.model.NowPlaying
+import com.example.domain.cinebase.home.model.NowPlaying
 import kotlinx.coroutines.flow.Flow
 
 interface ICineRemoteData {

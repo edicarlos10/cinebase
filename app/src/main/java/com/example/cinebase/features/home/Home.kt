@@ -39,9 +39,7 @@ fun Home(homeViewModel: HomeViewModel?) {
                         Loading()
                     }
 
-                    else -> {
-                        Unit
-                    }
+                    else -> {}
                 }
             }
         }

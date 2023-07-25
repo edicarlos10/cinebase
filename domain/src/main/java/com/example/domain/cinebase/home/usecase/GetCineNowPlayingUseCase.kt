@@ -1,7 +1,7 @@
-package com.example.domain.cinebase.nowplaying.usecase
+package com.example.domain.cinebase.home.usecase
 
 import com.example.domain.cinebase.ICineRepository
-import com.example.domain.cinebase.nowplaying.model.NowPlaying
+import com.example.domain.cinebase.home.model.NowPlaying
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

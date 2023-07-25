@@ -3,8 +3,8 @@ package com.example.cinebase.features.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.cinebase.base.State
-import com.example.domain.cinebase.nowplaying.model.NowPlaying
-import com.example.domain.cinebase.nowplaying.usecase.GetCineNowPlayingUseCase
+import com.example.domain.cinebase.home.model.NowPlaying
+import com.example.domain.cinebase.home.usecase.GetCineNowPlayingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

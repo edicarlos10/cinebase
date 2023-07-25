@@ -1,6 +1,6 @@
 package com.example.network.remote.response
 
-import com.example.domain.cinebase.nowplaying.model.Dates
+import com.example.domain.cinebase.home.model.Dates
 
 data class DatesResponse(
     val maximum: String? = null,

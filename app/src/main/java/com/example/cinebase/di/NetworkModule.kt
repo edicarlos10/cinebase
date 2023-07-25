@@ -1,7 +1,7 @@
 package com.example.cinebase.di
 
 import com.example.domain.cinebase.ICineRepository
-import com.example.domain.cinebase.nowplaying.usecase.GetCineNowPlayingUseCase
+import com.example.domain.cinebase.home.usecase.GetCineNowPlayingUseCase
 import com.example.network.CineRepository
 import com.example.network.remote.CineRemoteData
 import com.example.network.remote.ICineRemoteData

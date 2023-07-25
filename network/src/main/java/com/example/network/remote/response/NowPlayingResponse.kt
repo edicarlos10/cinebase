@@ -1,6 +1,6 @@
 package com.example.network.remote.response
 
-import com.example.domain.cinebase.nowplaying.model.NowPlaying
+import com.example.domain.cinebase.home.model.NowPlaying
 
 data class NowPlayingResponse(
     val dates: DatesResponse? = null,

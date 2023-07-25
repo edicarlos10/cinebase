@@ -1,4 +1,4 @@
-package com.example.domain.cinebase.nowplaying.model
+package com.example.domain.cinebase.home.model
 
 import java.io.Serializable
 
