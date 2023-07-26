@@ -1,9 +1,10 @@
 package com.example.cinebase.features.home.nowplaying
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -19,12 +20,16 @@ import com.example.domain.cinebase.home.model.NowPlaying
 
 @Composable
 fun NowPlaying(response: NowPlaying) {
-    Card(
-        modifier = Modifier.padding(16.dp)
-
+    Text("Em alta", modifier = Modifier.padding(16.dp))
+    LazyRow(
+        modifier = Modifier
+            .padding(top = 48.dp)
     ) {
-        LazyColumn{
-            items(response.results!!) { item ->
+        items(response.results!!) { item ->
+            Card(
+                modifier = Modifier
+                    .padding(start = 16.dp, bottom = 16.dp)
+            ) {
                 AsyncImage(
                     model = ImageRequest.Builder(context = LocalContext.current)
                         .data(Constants.imageUrlBase + item?.poster_path)
@@ -32,8 +37,7 @@ fun NowPlaying(response: NowPlaying) {
                     error = painterResource(R.drawable.ic_broken_image),
                     placeholder = painterResource(R.drawable.loading_animation),
                     contentDescription = "imagem do filme",
-                    contentScale = ContentScale.FillBounds,
-                    modifier = Modifier.padding(bottom = 8.dp)
+                    contentScale = ContentScale.FillBounds
                 )
             }
         }
