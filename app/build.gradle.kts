@@ -91,6 +91,9 @@ dependencies {
     // hilt di
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
+
+    // coil to img
+    implementation(libs.coil)
 }
 kapt {
     correctErrorTypes = true
