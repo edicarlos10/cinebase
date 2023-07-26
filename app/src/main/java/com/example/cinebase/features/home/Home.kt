@@ -3,13 +3,17 @@ package com.example.cinebase.features.home
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import com.example.cinebase.R
 import com.example.cinebase.ui.theme.CinebaseTheme
 import com.example.domain.cinebase.base.State
 
@@ -29,9 +33,14 @@ fun Home(homeViewModel: HomeViewModel?) {
                     }
 
                     is State.Data -> {
-                        Text(
-                            text = response.data.results?.get(0)?.title ?: "",
-                            style = MaterialTheme.typography.titleLarge
+                        AsyncImage(
+                            model = ImageRequest.Builder(context = LocalContext.current)
+                                .data(Constants.imageUrlBase + response.data.results?.get(0)?.poster_path)
+                                .crossfade(true).build(),
+                            error = painterResource(R.drawable.ic_broken_image),
+                            placeholder = painterResource(R.drawable.loading_animation),
+                            contentDescription = "imagem do clima",
+                            contentScale = ContentScale.FillBounds
                         )
                     }
 
