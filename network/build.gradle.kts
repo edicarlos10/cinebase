@@ -46,6 +46,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    testImplementation(libs.org.jetbrains.kotlinx.test)
 
     //retrofit
     implementation (libs.squareup.retrofit2)
@@ -55,7 +56,7 @@ dependencies {
 
     //unit test
     implementation (libs.mockk)
-    implementation (libs.mockito.android)
+//    implementation (libs.mockito.android)https://github.com/mockito/mockito/issues/3050
     implementation (libs.mockito.core)
 
     // hilt di
