@@ -7,6 +7,9 @@ import org.mockito.MockitoAnnotations
 
 abstract class BaseTest {
 
+    open val language = "pt-br"
+    open val page = 1
+
     @Before
     open fun setup() {
         MockitoAnnotations.openMocks(this)

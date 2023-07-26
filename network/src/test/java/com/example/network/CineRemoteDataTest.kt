@@ -43,7 +43,7 @@ class CineRemoteDataTest : BaseTest() {
     fun `Should get cine get now playing`() = runTest {
         Mockito.`when`(client.getNowPlaying()).thenReturn(response)
 
-        val result = remoteData.getNowPlaying(1, "pt-br").toList()
+        val result = remoteData.getNowPlaying(page, language).toList()
 
         assertEquals(1, result.size)
         assertEquals(response.toNowPlaying().page, result[0].page)
