@@ -60,7 +60,16 @@ Testes unitários foram criados para a camada de Network e Domain. Elas englobam
 
 Para executar os testes basta abrir o arquivo pelo android studio e apertar na flecha verde do inicio da classe de teste.
 
-# Prints de tela
+# Preview do APP rodando
+São duas telas construidas.
+- Listagem
+- Detalhes
+
+<p float="left">
+
+ <img src="https://github.com/edicarlos10/cinebase/blob/master/app/src/main/java/com/example/cinebase/img/1.png" width="200" />
+
+</p>
 
 
 # Licensa
