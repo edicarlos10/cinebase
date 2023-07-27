@@ -35,7 +35,7 @@ fun NowPlaying(response: NowPlaying, modifier: Modifier, onClick: () -> Unit = {
     }
     LazyRow(
         modifier = Modifier
-            .padding(top = 48.dp, end = 16.dp)
+            .padding(top = 48.dp)
     ) {
         response.results?.let { listResult ->
             items(listResult) { item ->
