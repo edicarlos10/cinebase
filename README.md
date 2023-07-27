@@ -52,11 +52,6 @@ Algumas melhorias _deverão ser feitas:_
 - Inserir uma Splash
 - Integração com as actions do gitHub (rodar lint, unit testes por ex)
 
-
-Abaixo, segue um exemplo de como poderá ser a UI
-
-[Link de UI](https://www.behance.net/gallery/9650557/iOS7-Weather-App)
-
 # Testes
 Testes unitários foram criados para a camada de Network e Domain. Elas englobam:
 - Remote data
