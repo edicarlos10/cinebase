@@ -1,4 +1,4 @@
-package com.example.cinebase.features.home
+package com.example.cinebase.features.home.base
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton

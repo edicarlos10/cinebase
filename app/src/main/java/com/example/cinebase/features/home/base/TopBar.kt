@@ -1,4 +1,4 @@
-package com.example.cinebase.features.home
+package com.example.cinebase.features.home.base
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
