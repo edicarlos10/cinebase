@@ -1,8 +1,8 @@
 package com.example.cinebase.features.home.base
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -14,10 +14,9 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Loading(){
-    Box(modifier = Modifier.padding(all = 16.dp)) {
+    Box(modifier = Modifier.padding(top = 48.dp).fillMaxWidth()) {
         Column(
             modifier = Modifier.align(Alignment.Center),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
         }
