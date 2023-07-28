@@ -1,6 +1,5 @@
 package com.example.cinebase.features.home
 
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -14,6 +13,7 @@ import com.example.cinebase.features.home.base.SearchTopBar
 import com.example.cinebase.features.home.enuns.NavScreens.Home
 import com.example.cinebase.features.home.enuns.NavScreens.values
 import com.example.cinebase.features.home.nowplaying.NowPlayingBody
+import com.example.cinebase.features.home.search.SearchBody
 import com.example.cinebase.ui.theme.CinebaseTheme
 
 @Composable
@@ -27,7 +27,7 @@ fun Home(homeViewModel: HomeViewModel?) {
     }
     Scaffold(
         topBar = {
-            SearchTopBar()
+            SearchTopBar(homeViewModel)
         },
         bottomBar = {
             BottomNavigation(navigationBarItems = navigationItems,
@@ -43,6 +43,7 @@ fun Home(homeViewModel: HomeViewModel?) {
         }
     ) { paddingValues ->
         NowPlayingBody(homeViewModel = homeViewModel, paddingValues = paddingValues)
+        SearchBody(homeViewModel = homeViewModel, paddingValues = paddingValues)
     }
 }
 

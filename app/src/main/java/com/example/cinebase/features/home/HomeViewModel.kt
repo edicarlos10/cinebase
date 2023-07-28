@@ -19,9 +19,9 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val getCineNowPlayingUseCase: GetCineNowPlayingUseCase,
     private val getCineMovieSearchUseCase: GetCineMovieSearchUseCase
-): ViewModel() {
+) : ViewModel() {
 
-    private  val _nowPlayingState = MutableStateFlow<State<NowPlaying>>(State.loading())
+    private val _nowPlayingState = MutableStateFlow<State<NowPlaying>>(State.loading())
     val nowPlaying = _nowPlayingState.asStateFlow()
 //        get() = _nowPlayingState.asStateFlow()
 
@@ -29,34 +29,32 @@ class HomeViewModel @Inject constructor(
 //        getNowPlaying()
 //    }
 
-    private  val _searchState = MutableStateFlow<State<Search>>(State.loading())
+    private val _searchState = MutableStateFlow<State<Search>>(State.loading())
     val search = _searchState.asStateFlow()
 
-    fun getNowPlaying(page: Int? = 1, language: String? = "pt-br"){
+    fun getNowPlaying(page: Int? = 1, language: String? = "pt-br") {
         viewModelScope.launch {
+            _searchState.emit(State.Idle)
             getCineNowPlayingUseCase.execute(page, language).onStart {
                 _nowPlayingState.emit(State.Loading)
             }.catch {
                 _nowPlayingState.emit(State.Error(cause = it))
-            }.collect{
+            }.collect {
                 _nowPlayingState.emit(State.Data(it))
             }
         }
     }
 
-    fun getMovieSearch(query: String, page: Int? = 1, language: String? = "pt-br"){
+    fun getMovieSearch(query: String, page: Int? = 1, language: String? = "pt-br") {
         viewModelScope.launch {
+            _nowPlayingState.emit(State.Idle)
             getCineMovieSearchUseCase.execute(query, page, language).onStart {
                 _searchState.emit(State.Loading)
             }.catch {
                 _searchState.emit(State.Error(cause = it))
-            }.collect{
+            }.collect {
                 _searchState.emit(State.Data(it))
             }
         }
-    }
-
-    suspend fun setStateToIdle(){
-        _nowPlayingState.emit(State.Idle)
     }
 }

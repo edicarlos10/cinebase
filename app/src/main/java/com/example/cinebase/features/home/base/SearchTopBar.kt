@@ -23,10 +23,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.cinebase.features.home.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchTopBar() {
+fun SearchTopBar(homeViewModel: HomeViewModel?) {
     var active by remember { mutableStateOf(false) }
     var searchText by remember { mutableStateOf("") }
     val items = remember {
@@ -50,6 +51,7 @@ fun SearchTopBar() {
         onSearch = {
             items.add(searchText)
             active = false
+            homeViewModel?.getMovieSearch(query = searchText)
         },
         active = active,
         onActiveChange = {
