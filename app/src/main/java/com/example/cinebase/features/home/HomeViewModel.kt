@@ -56,7 +56,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    suspend fun setStateToLoading(){
+    suspend fun setStateToIdle(){
         _nowPlayingState.emit(State.Idle)
     }
 }
