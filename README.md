@@ -32,6 +32,9 @@ Seguindo com:
 - **Mockito para testes automatizados**
 - **Corrotinas para eventos assincronos**
 - **JetPack Compose para UI**
+- **Splash Screen com Compose**
+- **Lottie para animação do logo** 
+- **Material 3**
 
 Outros detalhes podem ser _conferidos nos arquivos do projeto._ 
 # Oque faltou
@@ -48,8 +51,6 @@ Algumas melhorias _deverão ser feitas:_
 
 - Melhoraria de UI
 - Implementar endpoints
-- Inserir icone
-- Inserir uma Splash
 - Integração com as actions do gitHub (rodar lint, unit testes por ex)
 
 # Testes

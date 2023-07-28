@@ -97,6 +97,10 @@ dependencies {
 
     // coil to img
     implementation(libs.coil)
+
+    //splash and navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.com.airbnb.android.lottie)
 }
 kapt {
     correctErrorTypes = true
