@@ -2,6 +2,7 @@ package com.example.network
 
 import com.example.domain.cinebase.home.model.Dates
 import com.example.domain.cinebase.home.model.NowPlaying
+import com.example.domain.cinebase.home.model.Search
 import com.example.network.remote.ICineRemoteData
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.toList
@@ -29,6 +30,14 @@ class CineRepositoryTest :BaseTest() {
         total_results = 1545,
 
         )
+
+    private val expectedSearch = Search(
+        page = 1,
+        results = emptyList(),
+        total_pages = 78,
+        total_results = 1545,
+
+        )
     override fun initialize() {
         super.initialize()
 
@@ -45,5 +54,16 @@ class CineRepositoryTest :BaseTest() {
         Assert.assertEquals(1, result.size)
         Assert.assertEquals(expected.page, result[0].page)
         Mockito.verify(remoteData).getNowPlaying(page, language)
+    }
+    @Test
+    fun `Should return flow of cine search`() = runTest {
+        val flow = flow { emit(expectedSearch) }
+        Mockito.`when`(remoteData.getMovieSearch("Barbie",page, language)).thenReturn(flow)
+
+        val result = cineRepository.getMovieSearch("Barbie",page, language).toList()
+
+        Assert.assertEquals(1, result.size)
+        Assert.assertEquals(expectedSearch.page, result[0].page)
+        Mockito.verify(remoteData).getMovieSearch("Barbie",page, language)
     }
 }
