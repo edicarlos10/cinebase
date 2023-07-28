@@ -1,5 +1,6 @@
 package com.example.cinebase.features.home.base
 
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +20,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,11 +32,19 @@ fun SearchTopBar() {
     val items = remember {
         mutableStateListOf("")
     }
+    val paddingHorizontal: Dp by animateDpAsState(
+        if (active) {
+            0.dp
+        } else {
+            16.dp
+        }, label = ""
+    )
 
     SearchBar(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = paddingHorizontal)
+            .graphicsLayer { scaleX = 1f },
         query = searchText,
         onQueryChange = { searchText = it },
         onSearch = {
@@ -41,7 +52,9 @@ fun SearchTopBar() {
             active = false
         },
         active = active,
-        onActiveChange = { active = it },
+        onActiveChange = {
+            active = it
+        },
         placeholder = { Text(text = "Busca") },
         leadingIcon = {
             Icon(imageVector = Icons.Default.Search, contentDescription = "")
@@ -65,7 +78,8 @@ fun SearchTopBar() {
         items.forEach {
             if (it.isNotBlank()) {
                 Row(
-                    modifier = Modifier.padding(16.dp)
+                    modifier = Modifier
+                        .padding(16.dp)
                         .fillMaxWidth()
                         .clickable {
                             searchText = it
