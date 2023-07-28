@@ -33,7 +33,7 @@ class NetworkModule {
                     .addInterceptor(httpInterceptor).build()
             )
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api.themoviedb.org/3/movie/")
+            .baseUrl("https://api.themoviedb.org/3/")
             .build()
             .create(ICineApiClient::class.java)
     }

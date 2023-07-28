@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface ICineApiClient {
 
-    @GET("now_playing")
+    @GET("movie/now_playing")
     suspend fun getNowPlaying(
         @Query("api_key") apiKey: String = "b19f46767a72e4812181f01a5d9085b8",
         @Query("page") page: Int? = 1,
