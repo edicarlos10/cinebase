@@ -2,8 +2,9 @@ package com.example.cinebase.features.home.search
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -33,7 +34,7 @@ fun Search(response: Search, modifier: Modifier, onClick: () -> Unit = {}) {
             )
         )
     }
-    LazyRow(
+    LazyColumn(
         modifier = Modifier
             .padding(top = 48.dp)
     ) {
@@ -41,19 +42,21 @@ fun Search(response: Search, modifier: Modifier, onClick: () -> Unit = {}) {
             items(listResult) { item ->
                 Card(
                     modifier = Modifier
-                        .padding(start = 16.dp)
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp, vertical = 8.dp)
                         .clickable {
                             onClick()
                         }
                 ) {
                     AsyncImage(
+                        modifier = Modifier.fillMaxSize(),
                         model = ImageRequest.Builder(context = LocalContext.current)
                             .data(Constants.imageUrlBase + item?.poster_path)
                             .crossfade(true).build(),
                         error = painterResource(R.drawable.ic_broken_image),
                         placeholder = painterResource(R.drawable.loading_animation),
                         contentDescription = "imagem do filme",
-                        contentScale = ContentScale.FillBounds
+                        contentScale = ContentScale.FillWidth
                     )
                 }
             }
