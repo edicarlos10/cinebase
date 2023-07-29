@@ -49,7 +49,9 @@ fun SearchTopBar(homeViewModel: HomeViewModel?) {
         query = searchText,
         onQueryChange = { searchText = it },
         onSearch = {
-            items.add(searchText)
+            if (searchText !in items) {
+                items.add(searchText)
+            }
             active = false
             homeViewModel?.getMovieSearch(query = searchText)
         },
