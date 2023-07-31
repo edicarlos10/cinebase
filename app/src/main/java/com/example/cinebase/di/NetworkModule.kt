@@ -3,6 +3,7 @@ package com.example.cinebase.di
 import com.example.domain.cinebase.ICineRepository
 import com.example.domain.cinebase.home.usecase.GetCineMovieSearchUseCase
 import com.example.domain.cinebase.home.usecase.GetCineNowPlayingUseCase
+import com.example.domain.cinebase.home.usecase.GetUpcomingUseCase
 import com.example.network.CineRepository
 import com.example.network.remote.CineRemoteData
 import com.example.network.remote.ICineRemoteData
@@ -54,6 +55,9 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideGetCineNowPlayingUseCase(cineRepository: CineRepository) = GetCineNowPlayingUseCase(cineRepository)
+    @Provides
+    @Singleton
+    fun provideGetUpcomingUseCase(cineRepository: CineRepository) = GetUpcomingUseCase(cineRepository)
 
     @Provides
     @Singleton
