@@ -61,7 +61,7 @@ Testes unitários foram criados para a camada de Network e Domain. Elas englobam
 
 Para executar os testes basta abrir o arquivo pelo android studio e apertar na flecha verde do inicio da classe de teste.
 
-# Preview do APP rodando
+# Preview do APP rodando (Clique na imagem para ver o video)
 
 
 [![Video de Preview do APP](https://img.youtube.com/vi/pCq8qwdA1bQ/0.jpg)](https://www.youtube.com/shorts/pCq8qwdA1bQ "Video de Preview do APP")
