@@ -14,6 +14,13 @@ interface ICineApiClient {
         @Query("language") language: String? = "pt-br"
     ): NowPlayingResponse
 
+    @GET("movie/upcoming")
+    suspend fun getUpcoming(
+        @Query("api_key") apiKey: String = "b19f46767a72e4812181f01a5d9085b8",
+        @Query("page") page: Int? = 1,
+        @Query("language") language: String? = "pt-br"
+    ): NowPlayingResponse
+
     @GET("search/movie")
     suspend fun getMovieSearch(
         @Query("query") query: String,
