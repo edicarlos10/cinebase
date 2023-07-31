@@ -67,6 +67,7 @@ class HomeViewModel @Inject constructor(
     fun getMovieSearch(query: String, page: Int? = 1, language: String? = "pt-br") {
         viewModelScope.launch {
             _nowPlayingState.emit(State.Idle)
+            _upComingState.emit(State.Idle)
             getCineMovieSearchUseCase.execute(query, page, language).onStart {
                 _searchState.emit(State.Loading)
             }.catch {
