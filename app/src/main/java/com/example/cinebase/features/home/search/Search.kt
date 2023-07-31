@@ -13,8 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.CompositingStrategy
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -30,10 +28,9 @@ import com.example.domain.cinebase.home.model.Search
 
 @Composable
 fun Search(response: Search, modifier: Modifier, onClick: () -> Unit = {}) {
-    Row {
+    Row (modifier = Modifier.padding(start = 16.dp, top = 8.dp)) {
         Text(
             "Pesquisa",
-            modifier = Modifier.padding(start = 16.dp, top = 8.dp),
             style = MaterialTheme.typography.headlineSmall.copy(
                 fontWeight = FontWeight.Light
             )
@@ -42,10 +39,6 @@ fun Search(response: Search, modifier: Modifier, onClick: () -> Unit = {}) {
     LazyColumn(
         modifier = Modifier
             .padding(top = 48.dp)
-            .graphicsLayer {
-                alpha = 1f
-                compositingStrategy = CompositingStrategy.Offscreen
-            }
             .fadingEdge(
                 Brush.verticalGradient(
                     0.8f to Color.White,

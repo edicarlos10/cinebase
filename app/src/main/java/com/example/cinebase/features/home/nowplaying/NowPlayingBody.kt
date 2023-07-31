@@ -1,7 +1,6 @@
 package com.example.cinebase.features.home.nowplaying
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -14,11 +13,11 @@ import com.example.cinebase.features.home.base.Loading
 import com.example.domain.cinebase.base.State
 
 @Composable
-fun NowPlayingBody(homeViewModel: HomeViewModel?, paddingValues: PaddingValues){
+fun NowPlayingBody(homeViewModel: HomeViewModel?){
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues = paddingValues)
+            .padding(end = 16.dp, top = 8.dp)
     ) {
         homeViewModel?.nowPlaying?.collectAsStateWithLifecycle()?.value.let { response ->
             when (response) {
@@ -27,7 +26,7 @@ fun NowPlayingBody(homeViewModel: HomeViewModel?, paddingValues: PaddingValues){
                 }
 
                 is State.Data -> {
-                    NowPlaying(response = response.data, Modifier.padding(16.dp), onClick = {
+                    NowPlaying(response = response.data, onClick = {
                         //TODO: open detail
                     })
                 }

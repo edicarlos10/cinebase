@@ -12,8 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.CompositingStrategy
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -28,11 +26,10 @@ import com.example.cinebase.features.home.extension.fadingEdge
 import com.example.domain.cinebase.home.model.Upcoming
 
 @Composable
-fun Upcoming(response: Upcoming, modifier: Modifier, onClick: () -> Unit = {}) {
-    Row {
+fun Upcoming(response: Upcoming, onClick: () -> Unit = {}) {
+    Row(modifier = Modifier.padding(start = 16.dp, top = 8.dp)) {
         Text(
             "Em Breve",
-            modifier = Modifier.padding(start = 16.dp, top = 8.dp),
             style = MaterialTheme.typography.headlineSmall.copy(
                 fontWeight = FontWeight.Light
             )
@@ -42,10 +39,6 @@ fun Upcoming(response: Upcoming, modifier: Modifier, onClick: () -> Unit = {}) {
     LazyRow(
         modifier = Modifier
             .padding(top = 48.dp)
-            .graphicsLayer {
-                alpha = 1f
-                compositingStrategy = CompositingStrategy.Offscreen
-            }
             .fadingEdge(
                 brush = Brush.horizontalGradient(
                     0.8f to Color.White,
