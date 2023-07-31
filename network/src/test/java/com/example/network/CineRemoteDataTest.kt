@@ -5,6 +5,7 @@ import com.example.network.remote.api.ICineApiClient
 import com.example.network.remote.response.DatesResponse
 import com.example.network.remote.response.NowPlayingResponse
 import com.example.network.remote.response.SearchResponse
+import com.example.network.remote.response.UpcomingResponse
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
@@ -23,6 +24,18 @@ class CineRemoteDataTest : BaseTest() {
     private lateinit var remoteData: CineRemoteData
 
     private val response = NowPlayingResponse(
+        dates = DatesResponse(
+            maximum = "2023-07-24",
+            minimum = "2023-06-06"
+        ),
+        page = 1,
+        results = emptyList(),
+        total_pages = 78,
+        total_results = 1545,
+
+    )
+
+    private val responseUpcoming = UpcomingResponse(
         dates = DatesResponse(
             maximum = "2023-07-24",
             minimum = "2023-06-06"
@@ -57,6 +70,17 @@ class CineRemoteDataTest : BaseTest() {
         assertEquals(1, result.size)
         assertEquals(response.toNowPlaying().page, result[0].page)
         Mockito.verify(client).getNowPlaying()
+    }
+
+    @Test
+    fun `Should get upcoming`() = runTest {
+        Mockito.`when`(client.getUpcoming()).thenReturn(responseUpcoming)
+
+        val result = remoteData.getUpcoming(page, language).toList()
+
+        assertEquals(1, result.size)
+        assertEquals(responseUpcoming.toUpcoming().page, result[0].page)
+        Mockito.verify(client).getUpcoming()
     }
 
     @Test
